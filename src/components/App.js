@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import youtube from './api/youtube';
+import VideoList from './VideoList/VideoList';
 
 
 export default class App extends React.Component {
@@ -23,6 +24,8 @@ export default class App extends React.Component {
                 <SearchBar onFormSubmit={this.onTermSearch}/>
             
                 I have {this.state.videos.length} videos.
+
+                <VideoList videos={this.state.videos}/>
             </div>
         )
     }
