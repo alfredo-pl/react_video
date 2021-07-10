@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import youtube from './api/youtube';
 import VideoList from './VideoList/VideoList';
-
+import VideoDetail from './VideoDetail/VideoDetail';
 
 export default class App extends React.Component {
 
@@ -19,7 +19,7 @@ export default class App extends React.Component {
     }
 
     onVideoSelect = video =>{
-        console.log("video me gusta", video)
+       this.setState({seletedVideo: video})
     }
 
     render(){
@@ -28,7 +28,7 @@ export default class App extends React.Component {
                 <SearchBar onFormSubmit={this.onTermSearch}/>
             
                 I have {this.state.videos.length} videos.
-
+                <VideoDetail video={this.state.seletedVideo}/>
                 <VideoList 
                 onVideoSelect={this.onVideoSelect}
                 videos={this.state.videos}/>
